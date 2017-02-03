@@ -1,0 +1,179 @@
+#
+# arts1500
+#
+# [500]
+ipython -- ../train_ae.py ../datasets/arts1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500/cf-0.9/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/arts1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500/cf-0.8/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/arts1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500/cf-0.7/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500]
+ipython -- ../train_ae.py ../datasets/arts1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/arts1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/arts1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500, 500]
+ipython -- ../train_ae.py ../datasets/arts1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/arts1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/arts1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+
+#
+# business1500
+#
+# [500]
+ipython -- ../train_ae.py ../datasets/business1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500/cf-0.9/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/business1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500/cf-0.8/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/business1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500/cf-0.7/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500]
+ipython -- ../train_ae.py ../datasets/business1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/business1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/business1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500, 500]
+ipython -- ../train_ae.py ../datasets/business1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/business1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/business1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+
+#
+# cal500
+#
+# [500]
+ipython -- ../train_ae.py ../datasets/cal500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500/cf-0.9/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/cal500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500/cf-0.8/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/cal500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500/cf-0.7/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500]
+ipython -- ../train_ae.py ../datasets/cal500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/cal500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/cal500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500, 500]
+ipython -- ../train_ae.py ../datasets/cal500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/cal500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/cal500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+
+#
+# emotions
+#
+# [500]
+ipython -- ../train_ae.py ../datasets/emotions.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500/cf-0.9/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/emotions.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500/cf-0.8/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/emotions.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500/cf-0.7/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500]
+ipython -- ../train_ae.py ../datasets/emotions.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/emotions.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/emotions.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500, 500]
+ipython -- ../train_ae.py ../datasets/emotions.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/emotions.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/emotions.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+
+#
+# flags
+#
+# [500]
+ipython -- ../train_ae.py ../datasets/flags.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500/cf-0.9/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/flags.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500/cf-0.8/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/flags.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500/cf-0.7/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500]
+ipython -- ../train_ae.py ../datasets/flags.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/flags.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/flags.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500, 500]
+ipython -- ../train_ae.py ../datasets/flags.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/flags.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/flags.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+
+#
+# health1500
+#
+# [500]
+ipython -- ../train_ae.py ../datasets/health1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500/cf-0.9/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/health1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500/cf-0.8/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/health1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500/cf-0.7/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500]
+ipython -- ../train_ae.py ../datasets/health1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/health1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/health1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500, 500]
+ipython -- ../train_ae.py ../datasets/health1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/health1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/health1500.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+
+#
+# human3106
+#
+# [500]
+ipython -- ../train_ae.py ../datasets/human3106.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500/cf-0.9/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/human3106.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500/cf-0.8/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/human3106.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500/cf-0.7/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500]
+ipython -- ../train_ae.py ../datasets/human3106.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/human3106.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/human3106.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500, 500]
+ipython -- ../train_ae.py ../datasets/human3106.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/human3106.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/human3106.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+
+#
+# plants978
+#
+# [500]
+ipython -- ../train_ae.py ../datasets/plants978.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500/cf-0.9/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/plants978.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500/cf-0.8/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/plants978.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500/cf-0.7/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500]
+ipython -- ../train_ae.py ../datasets/plants978.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/plants978.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/plants978.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500, 500]
+ipython -- ../train_ae.py ../datasets/plants978.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/plants978.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/plants978.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+
+#
+# scene
+#
+# [500]
+ipython -- ../train_ae.py ../datasets/scene.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500/cf-0.9/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/scene.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500/cf-0.8/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/scene.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500/cf-0.7/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500]
+ipython -- ../train_ae.py ../datasets/scene.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/scene.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/scene.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500, 500]
+ipython -- ../train_ae.py ../datasets/scene.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/scene.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/scene.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+
+#
+# yeast
+#
+# [500]
+ipython -- ../train_ae.py ../datasets/yeast.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500/cf-0.9/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/yeast.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500/cf-0.8/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/yeast.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500/cf-0.7/ --batch-size 20 100 --hidden-units "[500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500]
+ipython -- ../train_ae.py ../datasets/yeast.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/yeast.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/yeast.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+#
+# [500, 500, 500]
+ipython -- ../train_ae.py ../datasets/yeast.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.9 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.9/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/yeast.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.8 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.8/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
+ipython -- ../train_ae.py ../datasets/yeast.5.folds.tvt.pklz  --cv 5 --n-epochs 1000 --compress-factor 0.7 -o ../exp/ae-ml-repr-x/500-500-500/cf-0.7/ --batch-size 20 100 --hidden-units "[500,500,500]" --optimizer adam --save-model --save-enc --scores jaccard hamming exact --patience 50
