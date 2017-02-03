@@ -7,7 +7,7 @@
   Email: antonio.vergari@uniba.it
   $Date: 2017-01-22$
 
-  [1] 
+  [1] Andrew NG "Lecture Notes on Sparse Autoencoders" (https://web.stanford.edu/class/cs294a/sparseAutoencoder_2011new.pdf)
   [2] Vincent et al. (2008) "Extracting and composing robust  features  with  denoising  autoencoders"
   [3] Rifai et al. (2011) "Contractive Auto-Encoders: Explicit Invariance During Feature Extraction"
   [4] Kingma et al. (2014) "Autoencoding Variational Bayes"
@@ -175,7 +175,7 @@ def build_ae(input_dim, hidden_dims, latent_dim,
              contractive=None,
              denoising=None,
              variational=None,
-             optimizer='rmsprop',
+             optimizer='adam',
              batch_size=100,
              epsilon_std=1.0):
     """
@@ -860,3 +860,8 @@ with open(out_log_path, 'w') as out_log:
         with gzip.open(repr_save_path, 'wb') as f:
             print('Saving splits to {}'.format(repr_save_path))
             pickle.dump(best_encoded_splits, f, protocol=4)
+
+    grid_str = 'Grid search ended, best params: {}'.format(best_params)
+    logging.info(grid_str)
+    out_log.write(grid_str)
+    out_log.flush()

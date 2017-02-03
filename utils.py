@@ -271,6 +271,7 @@ def print_fold_splits_shapes(fold_splits):
 def compute_scores(y_true, y_preds, score='accuracy'):
 
     assert y_true.shape == y_preds.shape, (y_true.shape, y_preds.shape)
+
     if score == 'accuracy':
         return accuracy_score(y_true, y_preds)
     elif score == 'hamming':
