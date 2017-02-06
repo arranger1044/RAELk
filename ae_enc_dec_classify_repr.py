@@ -15,13 +15,13 @@
 
   antonio vergari
   ***************************************************************************************************
-  
+
   RAELk is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation (version 3).
 
   RAELk is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License along with this program; if not,
-see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/) 
+see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/)
 
 '''
 
@@ -126,9 +126,9 @@ CLASSIFIER_DICT = {
 def decode_predictions(repr_preds, ae_decoder, threshold=0.5):
 
     preds = ae_decoder.predict(repr_preds)
-    print('preds', preds[:2])
+    # print('preds', preds[:2])
     th_preds = compute_threshold(preds, threshold)
-    print('thresh', th_preds[:2])
+    # print('thresh', th_preds[:2])
     return th_preds
 
 
@@ -148,13 +148,7 @@ def decode_predictions_knn(preds, embeds, embeds_labels, **knn_wargs):
     return dec_preds
 
 
-def load_ae_decoder(model_path, fold=None, model_suffix='decoder'):
-    #
-    # loading a particular fold model (COMPRESSED ONLY)
-    if fold is not None:
-        model_path = '{}.{}.{}'.format(model_path,
-                                       model_suffix,
-                                       fold)
+def load_ae_decoder(model_path):
 
     logging.info('Loading AE model from {}'.format(model_path))
 
@@ -166,6 +160,7 @@ def load_ae_decoder(model_path, fold=None, model_suffix='decoder'):
     logging.info('\tdone in {}'.format(load_end_t - load_start_t))
 
     return ae_decoder
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("dataset", type=str,
@@ -203,8 +198,8 @@ parser.add_argument('--repr-y-dtype', type=str, nargs='?',
                     default='float',
                     help='Loaded representation type')
 
-parser.add_argument('--decode-model', type=str,
-                    help='AE decoder file path for decoding (or path to dir when --cv)')
+parser.add_argument('--decode-model', type=str, nargs='+',
+                    help='AE decoder file path for decoding (or sequence of paths when --cv)')
 
 parser.add_argument('--knn-decode', type=str, nargs='?',
                     help='Additional sklearn knn parameters in the for of a list' +
@@ -294,7 +289,7 @@ logging.info("Starting with arguments:\n%s", args)
 if args.repr_y is not None:
     decode = True
 
-    if args.decode_model is None:
+    if not args.decode_model:
         raise ValueError('Missing model to decode data')
 
     if args.knn_decode is not None:
@@ -385,14 +380,19 @@ if args.cv is not None:
                                  test_ext=test_ext,
                                  dtype=args.dtype)
 
-    repr_fold_x_splits = load_cv_splits(args.repr_x,
-                                        dataset_name,
-                                        n_folds,
-                                        x_only=True,
-                                        train_ext=repr_train_x_ext,
-                                        valid_ext=repr_valid_x_ext,
-                                        test_ext=repr_test_x_ext,
-                                        dtype=args.repr_x_dtype)
+    if args.repr_x is not None:
+        repr_fold_x_splits = load_cv_splits(args.repr_x,
+                                            dataset_name,
+                                            n_folds,
+                                            x_only=True,
+                                            train_ext=repr_train_x_ext,
+                                            valid_ext=repr_valid_x_ext,
+                                            test_ext=repr_test_x_ext,
+                                            dtype=args.repr_x_dtype)
+    else:
+        repr_fold_x_splits = [[split[0] if split else None for split in fold]
+                              for fold in fold_splits]
+
     if decode:
         repr_fold_y_splits = load_cv_splits(args.repr_y,
                                             dataset_name,
@@ -410,13 +410,19 @@ else:
                                              valid_ext=valid_ext,
                                              test_ext=test_ext,
                                              dtype=args.dtype)
-    repr_fold_x_splits = load_train_val_test_splits(args.repr_x,
-                                                    dataset_name,
-                                                    x_only=True,
-                                                    train_ext=repr_train_x_ext,
-                                                    valid_ext=repr_valid_x_ext,
-                                                    test_ext=repr_test_x_ext,
-                                                    dtype=args.repr_x_dtype)
+
+    if args.repr_x is not None:
+        repr_fold_x_splits = load_train_val_test_splits(args.repr_x,
+                                                        dataset_name,
+                                                        x_only=True,
+                                                        train_ext=repr_train_x_ext,
+                                                        valid_ext=repr_valid_x_ext,
+                                                        test_ext=repr_test_x_ext,
+                                                        dtype=args.repr_x_dtype)
+    else:
+        repr_fold_x_splits = [[split[0] if split else None for split in fold]
+                              for fold in fold_splits]
+
     if decode:
         repr_fold_y_splits = load_train_val_test_splits(args.repr_y,
                                                         dataset_name,
@@ -492,6 +498,7 @@ for i in range(len(fold_splits)):
             split_x, split_y = split
 
         if repr_x is not None:
+            # print(repr_x)
             if args.concat:
                 new_repr_x = numpy.concatenate((split_x, repr_x), axis=1)
                 assert new_repr_x.shape[0] == split_x.shape[0]
@@ -504,10 +511,11 @@ for i in range(len(fold_splits)):
                     labelled_fold.append([new_repr_x, split_y])
 
             else:
-                if args.x_orig:
+                if args.repr_x is None:
                     if decode:
                         logging.info('fold {}: {} (X |-> Y\') ({} |-> {})\n'.format(i,
-                                                                                    SPLIT_NAMES[s],
+                                                                                    SPLIT_NAMES[
+                                                                                        s],
                                                                                     split_x.shape,
                                                                                     repr_y.shape))
                         labelled_fold.append([split_x, repr_y])
@@ -560,7 +568,10 @@ ae_fold_decoders = None
 # feature_fold_infos = None
 if decode:
     if not args.knn_decode:
-        ae_fold_decoders = [load_ae_decoder(args.decode_model, model_suffix='decoder', fold=f)
+        assert len(args.decode_model) == n_folds, args.decode_model
+        # ae_fold_decoders = [load_ae_decoder(args.decode_model, model_suffix='decoder', fold=f)
+        #                     for f in range(len(labelled_splits))]
+        ae_fold_decoders = [load_ae_decoder(args.decode_model[f])
                             for f in range(len(labelled_splits))]
 
 
@@ -874,7 +885,7 @@ with open(out_log_path, 'w') as out_log:
                             assert split_preds.shape[1] == true_split_y.shape[1]
 
                         for s, score_func in enumerate(args.scores):
-                            print(true_split_y.shape, split_preds.shape)
+                            # print(true_split_y.shape, split_preds.shape)
                             split_score = compute_scores(true_split_y, split_preds, score_func)
                             score_tensor[p, f, i, s] = split_score
 
