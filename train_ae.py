@@ -859,7 +859,10 @@ with open(out_log_path, 'w') as out_log:
         repr_save_path = os.path.join(out_path, 'ae.{}.repr-data.pklz'.format(dataset_name))
         with gzip.open(repr_save_path, 'wb') as f:
             print('Saving splits to {}'.format(repr_save_path))
-            pickle.dump(best_encoded_splits, f, protocol=4)
+            if n_folds > 1:
+                pickle.dump(best_encoded_splits, f, protocol=4)
+            elif n_folds == 1:
+                pickle.dump(best_encoded_splits[0], f, protocol=4)
 
     grid_str = 'Grid search ended, best params: {}'.format(best_params)
     logging.info(grid_str)
