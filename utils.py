@@ -11,6 +11,11 @@ from sklearn.metrics import f1_score
 from sklearn.metrics import jaccard_similarity_score
 from sklearn.metrics import average_precision_score
 
+import matplotlib
+# matplotlib.use('Agg')
+from matplotlib import pyplot
+from matplotlib.backends.backend_pdf import PdfPages
+
 
 SPLIT_NAMES = ['train', 'valid', 'test']
 SCORE_NAMES = {'accuracy': 'acc',
@@ -292,3 +297,82 @@ def compute_scores(y_true, y_preds, score='accuracy'):
 
 def compute_threshold(data, threshold=0.5):
     return (data > threshold).astype(int)
+
+
+def plot_image(image_data, img_size=(28, 28), fig_size=(4, 4), output=None, show=True):
+
+    matrix_data = image_data.reshape(img_size)
+
+    fig, ax = pyplot.subplots(figsize=fig_size)
+    ax.imshow(matrix_data, cmap=pyplot.get_cmap('gray'))
+
+    if show:
+        pyplot.show()
+
+    if output:
+        pp = PdfPages(output + '.pdf')
+        pp.savefig(fig)
+        pp.close()
+        logging.info('Saved image to pdf {}'.format(output))
+
+RED_CMAP = pyplot.get_cmap('Reds_r')
+BLUE_CMAP = pyplot.get_cmap('Blues_r')
+
+
+def plot_images_matrix(images,
+                       m=None, n=None,
+                       img_size=(28, 28),
+                       fig_size=(12, 12),
+                       output=None, dpi=300,
+                       w_space=0.0,
+                       h_space=0.0,
+                       cmap=pyplot.get_cmap('gray'),
+                       masking=None,
+                       mask_cmap=RED_CMAP,
+                       show=True):
+
+    if m is None and n is None:
+        n_square = int(numpy.sqrt(len(images)))
+        m = n_square
+        n = n_square
+
+    import matplotlib.gridspec as gridspec
+
+    gs1 = gridspec.GridSpec(m, n)
+    gs1.update(wspace=w_space, hspace=h_space)
+    # print(gs1)
+
+    # print(len(images))
+    fig = pyplot.figure(figsize=fig_size, dpi=dpi)
+    for x in range(m):
+        for y in range(n):
+            id = n * x + y
+            if id < len(images):
+                # print(id, n, x, y)
+                ax = fig.add_subplot(gs1[id])
+                img_data = images[id]
+                if masking is not None:
+                    mask = numpy.zeros(img_data.shape, dtype=bool)
+                    mask[masking] = True
+                    # print(masking)
+                    # print(mask)
+                    img_1 = numpy.ma.masked_array(img_data, ~mask).reshape(img_size)
+                    ax.imshow(img_1, cmap=mask_cmap)
+                    img_2 = numpy.ma.masked_array(img_data, mask).reshape(img_size)
+                    ax.imshow(img_2, cmap=cmap)
+                else:
+                    img = img_data.reshape(img_size)
+                    ax.imshow(img, cmap=cmap)
+                pyplot.xticks(numpy.array([]))
+                pyplot.yticks(numpy.array([]))
+
+    # pyplot.tight_layout()
+    pyplot.subplots_adjust(left=None, right=None, wspace=w_space, hspace=h_space)
+    if output:
+        pp = PdfPages(output + '.pdf')
+        pp.savefig(fig)
+        pp.close()
+        logging.info('Saved image to pdf {}'.format(output))
+
+    if show:
+        pyplot.show()

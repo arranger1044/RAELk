@@ -53,6 +53,7 @@ from utils import print_fold_splits_shapes
 from utils import SPLIT_NAMES, SCORE_NAMES
 from utils import compute_scores
 from utils import compute_threshold
+from utils import plot_images_matrix
 
 # from spn.linked.representation import decode_embeddings_mpn
 # from spn.linked.representation import load_feature_info
@@ -265,6 +266,7 @@ def build_ae(input_dim, hidden_dims, latent_dim,
         else:
             return xent_loss
 
+    # optimizer = keras.optimizers.Adam(lr=0.01, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
     ae.compile(optimizer=optimizer, loss=ae_loss)
 
     #
@@ -319,6 +321,8 @@ def train_ae(ae,
              n_epochs=50,
              make_even_batch=None,
              patience=50,
+             show_rec=None,
+             img_size=None,
              verbose=1):
 
     # x_train = x_train.astype('float32') / 255.
@@ -348,13 +352,43 @@ def train_ae(ae,
                                                    patience=patience,
                                                    verbose=1,
                                                    mode='auto')
+
+    callbacks = [early_stopping]
+    if show_rec:
+        n_images_to_show = 8
+
+        def show_rec_images(epoch, logs):
+            if epoch % show_rec == 0:
+                output_path = 'rec.{}'.format(epoch)  # os.path.join('a')
+                images = []
+                #
+                # append one validation image and its reconstruction
+                for i in range(n_images_to_show):
+                    img_i = valid[i]
+                    img_i = img_i.reshape(-1, img_i.shape[0])
+                    images.append(img_i)
+                    enc_i = encoder.predict(img_i)
+                    dec_i = decoder.predict(enc_i)
+                    images.append(dec_i)
+
+                plot_images_matrix(images,
+                                   # m=n_square, n=n_square,
+                                   img_size=img_size,
+                                   w_space=0.0,
+                                   h_space=0.0,
+                                   output=output_path, show=False)
+
+        epoch_show_rec_cb = keras.callbacks.LambdaCallback(
+            on_epoch_end=show_rec_images)
+        callbacks.append(epoch_show_rec_cb)
+
     ae.fit(train, train,
            shuffle=True,
            nb_epoch=n_epochs,
            verbose=verbose,
            batch_size=batch_size,
            validation_data=(valid, valid),
-           callbacks=[early_stopping])
+           callbacks=callbacks)
 
     #
     # eval loss
@@ -451,6 +485,14 @@ parser.add_argument('--n-epochs', type=int, nargs='+',
 parser.add_argument('--patience', type=int, nargs='?',
                     default=50,
                     help='Number of epochs to wait if the valid loss is deacreasing')
+
+parser.add_argument('--show-rec-after-iters', type=int, nargs='?',
+                    default=None,
+                    help='Display a reconstruction version (for images) after some iterates')
+
+parser.add_argument('--img-size', type=int, nargs='+',
+                    default=[],
+                    help='For image data, specify the size of the image for reshaping purposes')
 
 parser.add_argument('--eps-std', type=float, nargs='+',
                     default=[1.0],
@@ -722,6 +764,8 @@ with open(out_log_path, 'w') as out_log:
                                                       # n_epochs=args.n_epochs,
                                                       n_epochs=n_epochs,
                                                       patience=args.patience,
+                                                      show_rec=args.show_rec_after_iters,
+                                                      img_size=args.img_size,
                                                       verbose=args.verbose)
             train_end_t = perf_counter()
             logging.info('Train, enc, dec done in {} secs'.format(train_end_t - train_start_t))
@@ -743,6 +787,10 @@ with open(out_log_path, 'w') as out_log:
             valid_preds = compute_threshold(valid_dec, threshold=0.5)
             test_preds = compute_threshold(test_dec, threshold=0.5)
             preds = [train_preds, valid_preds, test_preds]
+
+            print(train_dec[:1])
+            print(train_preds[:1])
+            print(train[:1])
 
             for score in args.scores:
 
